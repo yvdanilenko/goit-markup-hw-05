@@ -20,6 +20,9 @@
 
   --icon-fill: #afb1b8;
   --icon-dark-theme: rgba(255, 255, 255, 0.1);
+
+  --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-duration: 250ms;
 }
 
 /* ----------------------Общие стили --------------------------------- */
@@ -86,8 +89,6 @@ a.logo-footer.link {
   font-size: 26px;
   line-height: 1.192;
   letter-spacing: 0.03em;
-  padding-top: 24px;
-  padding-bottom: 25px;
 }
 
 .logo {
@@ -162,12 +163,6 @@ a.link-header {
 
 /* ----------------------Стилизация html --------------------------------- */
 /* business solution */
-.hero-section .container {
-  text-align: center;
-
-  padding-top: 200px;
-  padding-bottom: 200px;
-}
 
 .hero-title {
   color: var(--white-color);
@@ -199,9 +194,12 @@ a.link-header {
 
   margin-left: auto;
   margin-right: auto;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  text-align: center;
 }
 
-.modal-button {
+.order-services {
   display: inline-block;
   font-family: inherit;
   font-weight: 700;
@@ -218,9 +216,76 @@ a.link-header {
   padding: 10px 32px;
 }
 
-.modal-button:hover,
-.modal-button:focus {
+.order-services:hover,
+.order-services:focus {
   background: var(--dark-background-color);
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  transition: opacity var(--transition-duration)
+      var(--transition-timing-function),
+    pointer-events var(--transition-duration) var(--transition-timing-function),
+    visibility var(--transition-duration) var(--transition-timing-function);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.backdrop.backdrop.is-hidden.modal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scalex(0.8);
+  visibility: hidden;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  min-width: 528px;
+  min-height: 581px;
+
+  background-color: var(--white-color);
+
+  transition: opacity var(--transition-duration)
+      var(--transition-timing-function),
+    transform var(--transition-duration) var(--transition-timing-function),
+    visibility var(--transition-duration) var(--transition-timing-function);
+}
+
+.modal-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--modal-button);
+  background: var(--white-color);
+  fill: rgba(0, 0, 0, 1);
+
+  transition: fill var(--transition-duration) var(--transition-timing-function);
+}
+
+.modal-icon:hover,
+.modal-icon:focus,
+.modal-icon:active {
+  fill: var(--accent-color);
 }
 
 /* advantage */
@@ -300,8 +365,38 @@ a.link-header {
   margin-right: 30px;
 }
 
-.footer-section {
-  background: var(--background-color-fon);
+.develop {
+  position: relative;
+}
+
+.develop-fon {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
+.develop-name {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 100%;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.143;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: var(--white-color);
+
+  /* по центру */
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
 }
 
 /* our team */
@@ -348,9 +443,7 @@ a.link-header {
 }
 
 .team-list-item-data {
-  width: 270px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding: 30px;
   text-align: center;
 }
 
@@ -516,6 +609,10 @@ a.link-header {
 
 /* header */
 
+/* nav-list */
+
+/* mail/phone */
+
 .mail-phone-icon {
   fill: var(--main-text-color);
   margin-right: 10px;
@@ -668,6 +765,10 @@ li.contacts-list-item > a.phone::before {
 
 /* footer social icons */
 
+.footer-section {
+  background: var(--background-color-fon);
+}
+
 .join {
   color: var(--white-color);
   font-size: 14px;
@@ -685,4 +786,8 @@ li.contacts-list-item > a.phone::before {
 
 .dark-bcg-icon {
   background-color: var(--icon-dark-theme);
+}
+
+.footer-social-list-item:not(:last-child) {
+  margin-right: 10px;
 }

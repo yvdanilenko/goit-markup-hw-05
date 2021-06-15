@@ -21,7 +21,7 @@
     <!-- --------header---------- -->
     <header class="header-page">
       <div class="container">
-        <a href="./index.html" class="link link-header logo">
+        <a href="./index.html" class="link logo">
           <span class="web">Web</span>
           Studio
         </a>
@@ -72,7 +72,19 @@
           <h1 class="hero-title">
             Эффективные решения для вашего бизнеса
           </h1>
-          <button type="button" class="modal-button">Заказать услугу</button>
+          <button data-modal-open type="button" class="order-services">
+            Заказать услугу
+          </button>
+
+          <div data-modal class="backdrop is-hidden">
+            <div class="modal">
+              <button data-modal-close type="button" class="modal-button">
+                <svg class="modal-icon" width="18px" height="18px">
+                  <use href="./images/sprite/sprite.svg#icon-close-modal"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -143,30 +155,45 @@
           <h2 class="title">Чем мы занимаемся</h2>
           <ul class="services-list list">
             <li class="services-list-item">
-              <img
-                src="./images/we-do-img/box1.jpg"
-                alt="планшет на столе"
-                width="370"
-                height="294"
-              />
+              <div class="develop">
+                <img
+                  src="./images/we-do-img/box1.jpg"
+                  alt="Десктопные приложения"
+                  width="370"
+                  height="294"
+                />
+                <div class="develop-fon">
+                  <p class="develop-name">Десктопные приложения</p>
+                </div>
+              </div>
             </li>
 
             <li class="services-list-item">
-              <img
-                src="./images/we-do-img/box2.jpg"
-                alt="телефон в руке"
-                width="370"
-                height="294"
-              />
+              <div class="develop">
+                <img
+                  src="./images/we-do-img/box2.jpg"
+                  alt="Мобильные приложения"
+                  width="370"
+                  height="294"
+                />
+                <div class="develop-fon">
+                  <p class="develop-name">Мобильные приложения</p>
+                </div>
+              </div>
             </li>
 
             <li class="services-list-item">
-              <img
-                src="./images/we-do-img/box3.jpg"
-                alt="планшет в руке"
-                width="370"
-                height="294"
-              />
+              <div class="develop">
+                <img
+                  src="./images/we-do-img/box3.jpg"
+                  alt="Дизайнерские решения"
+                  width="370"
+                  height="294"
+                />
+                <div class="develop-fon">
+                  <p class="develop-name">Дизайнерские решения</p>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -500,7 +527,7 @@
         <div>
           <p class="join">Присоединяйтесь</p>
           <ul class="social-list list">
-            <li class="social-list-item">
+            <li class="social-list-item footer-social-list-item">
               <a href="" class="social-link dark-bcg-icon">
                 <svg class="social-icon">
                   <use
@@ -510,7 +537,7 @@
               </a>
             </li>
 
-            <li class="social-list-item">
+            <li class="social-list-item footer-social-list-item">
               <a href="" class="social-link dark-bcg-icon">
                 <svg class="social-icon">
                   <use
@@ -520,7 +547,7 @@
               </a>
             </li>
 
-            <li class="social-list-item">
+            <li class="social-list-item footer-social-list-item">
               <a href="" class="social-link dark-bcg-icon">
                 <svg class="social-icon">
                   <use
@@ -530,7 +557,7 @@
               </a>
             </li>
 
-            <li class="social-list-item">
+            <li class="social-list-item footer-social-list-item">
               <a href="" class="social-link dark-bcg-icon">
                 <svg class="social-icon">
                   <use
@@ -543,5 +570,6 @@
         </div>
       </div>
     </footer>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
