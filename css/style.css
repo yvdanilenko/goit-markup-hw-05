@@ -19,7 +19,7 @@
   --icon-fill: #afb1b8;
   --icon-dark-theme: rgba(255, 255, 255, 0.1);
 
-  --transition-duration: 3s;
+  --transition-duration: 250ms;
   --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -42,6 +42,10 @@ body {
 .link {
   text-decoration: none;
   color: inherit;
+
+  transition-property: color;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
 }
 
 .list {
@@ -107,8 +111,10 @@ a.logo-footer.link {
   align-items: center;
 }
 
-.nav-list-link > .link-header,
+.nav-list-item > .link-header,
 .contacts-list-item > .link-header {
+  position: relative;
+
   padding-top: 32px;
   padding-bottom: 32px;
 }
@@ -132,25 +138,28 @@ a.link-header {
   color: var(--title-text-color);
 }
 
-.nav-list-link:not(:last-child) {
+.nav-list-item:not(:last-child) {
   margin-right: 50px;
 }
 
-.nav-list-link {
+.nav-list-item {
   position: relative;
 }
 
 .current-page::after {
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
 
   content: '';
-  display: inline-block;
   width: 100%;
   height: 4px;
   border-radius: 2px;
   background-color: var(--accent-color);
+
+  transition-property: transform;
+  transition-timing-function: var(--transition-timing-function);
+  transition-duration: var(--transition-duration);
 }
 
 .contacts-list {
@@ -164,16 +173,21 @@ a.link-header {
   margin-right: 50px;
 }
 
-.nav-list-link a:hover,
-.nav-list-link a:focus,
-.contacts-list-item a:hover,
-.contacts-list-item a:focus,
+.nav-list-item:hover,
+.nav-list-item:focus,
+.contacts-list-item:hover,
+.contacts-list-item:focus,
 .current-page {
   color: var(--accent-color);
 }
 
 .contacts-list-item {
   font-weight: 500;
+}
+
+.contacts-list-link:hover,
+.contacts-list-link:focus {
+  color: var(--accent-color);
 }
 
 /* container */
@@ -238,8 +252,9 @@ a.link-header {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   padding: 10px 32px;
 
-  transition: background-color var(--transition-duration)
-    var(--transition-timing-function);
+  transition-property: background-color;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
 }
 
 .order-service:hover,
@@ -588,12 +603,6 @@ a.link-header {
   letter-spacing: 0.03em;
 }
 
-.overlay-description {
-  font-size: 18px;
-  line-height: 1.556;
-  letter-spacing: 0.03em;
-}
-
 .projects-wrapper {
   position: relative;
   overflow: hidden;
@@ -601,31 +610,30 @@ a.link-header {
 
 .overlay-description {
   position: absolute;
-
   top: 0;
   left: 0;
   transform: translateY(100%);
   overflow: auto;
 
-  /* padding-top: 63px;
+  padding-top: 63px;
   padding-right: 24px;
   padding-bottom: 63px;
-  padding-left: 24px; */
+  padding-left: 24px;
   width: 100%;
   height: 100%;
 
   font-size: 18px;
   line-height: 1.56;
   letter-spacing: 0.03em;
-  background-color: var(--bcg-color-projects-wrapper);
+  background: rgba(33, 150, 243, 0.9);
   color: var(--color-projects-wrapper);
 
-  /* transition: transform var(--transition-duration)
-    var(--transition-timing-function); */
+  transition: transform var(--transition-duration)
+    var(--transition-timing-function);
 }
 
-.projects-list-item-link:hover {
-  background-color: red;
+.projects-list-item-link:hover .overlay-description {
+  transform: translateY(0);
 }
 
 /* --------------address list---------------------------------------- */
