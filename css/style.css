@@ -144,6 +144,8 @@ a.link-header {
 
 .nav-list-item {
   position: relative;
+
+  transition: color var(--transition-duration) var(--transition-timing-function);
 }
 
 .current-page::after {
@@ -183,6 +185,12 @@ a.link-header {
 
 .contacts-list-item {
   font-weight: 500;
+
+  transition: color var(--transition-duration) var(--transition-timing-function);
+}
+
+.contacts-list-link {
+  transition: color var(--transition-duration) var(--transition-timing-function);
 }
 
 .contacts-list-link:hover,
@@ -319,7 +327,8 @@ a.link-header {
   border: 1px solid var(--modal-button);
   background: var(--white-color);
   fill: rgba(0, 0, 0, 1);
-
+}
+.modal-icon {
   transition: fill var(--transition-duration) var(--transition-timing-function);
 }
 
@@ -562,6 +571,10 @@ a.link-header {
 .projects-list-item {
   border-bottom: 1px solid #eeeeee;
 }
+.projects-list-item-link {
+  transition: box-shadow var(--transition-duration)
+    var(--transition-timing-function);
+}
 
 .projects-list-item-link:hover,
 .projects-list-item-link:focus {
@@ -649,6 +662,8 @@ a.link-header {
   display: block;
   font-style: normal;
   color: var(--white-color);
+
+  transition: color var(--transition-duration) var(--transition-timing-function);
 }
 
 .address-list-item:not(:last-child) {
@@ -684,6 +699,8 @@ a.link-header {
 
 .mail-phone-icon {
   margin-right: 10px;
+
+  transition: fill var(--transition-duration) var(--transition-timing-function);
 }
 
 .link-header:hover .mail-phone-icon,
@@ -769,17 +786,27 @@ li.contacts-list-item > a.phone::before {
   width: 44px;
   height: 44px;
   border-radius: 50%;
+
+  transition: background-color var(--transition-duration)
+    var(--transition-timing-function);
 }
 
 .social-icon {
   width: 20px;
   height: 20px;
   fill: var(--icon-fill);
+
+  transition: fill var(--transition-duration) var(--transition-timing-function);
 }
 
 .social-link:hover,
 .social-link:focus {
   background-color: var(--accent-color);
+}
+
+.light-bcg-icon {
+  transition: background-color var(--transition-duration)
+    var(--transition-timing-function);
 }
 .light-bcg-icon:hover .social-icon,
 .light-bcg-icon:focus .social-icon {
@@ -801,6 +828,9 @@ li.contacts-list-item > a.phone::before {
   height: 92px;
   border: 1px solid var(--icon-fill);
   border-radius: 4px;
+
+  transition: border var(--transition-duration)
+    var(--transition-timing-function);
 }
 
 .clients-link:hover,
@@ -817,6 +847,8 @@ li.contacts-list-item > a.phone::before {
   fill: var(--icon-fill);
   width: 106px;
   height: 60px;
+
+  transition: fill var(--transition-duration) var(--transition-timing-function);
 }
 
 /* footer social icons */
