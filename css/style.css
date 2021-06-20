@@ -674,13 +674,13 @@ a.link-header {
   margin-bottom: 9px;
 }
 
+.address-list-link {
+  color: rgba(255, 255, 255, 0.6);
+}
+
 .address-list-item a:hover,
 .address-list-item a:focus {
   color: var(--accent-color);
-}
-
-.address-list-link {
-  opacity: 0.6;
 }
 
 /* ПОЗИЦИОНИРОВАНИЕ */
@@ -707,9 +707,14 @@ a.link-header {
   transition: fill var(--transition-duration) var(--transition-timing-function);
 }
 
-.link-header:hover .mail-phone-icon,
-.link-header:focus .mail-phone-icon {
-  fill: var(--accent-color);
+.link-header:hover,
+.link-header:focus {
+  color: var(--accent-color);
+}
+
+.link-header:hover > .mail-phone-icon,
+.link-header:focus > .mail-phone-icon {
+  fill: currentColor;
 }
 
 /* через фон */
