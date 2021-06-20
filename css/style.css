@@ -15,6 +15,7 @@
   --card-border-color: #eeeeee;
   --bcg-color-projects-wrapper: rgba(33, 150, 243, 0, 9);
   --color-projects-wrapper: rgba(255, 255, 255, 1);
+  --overlay-color: rgba(33, 150, 243, 0.9);
 
   --icon-fill: #afb1b8;
   --icon-dark-theme: rgba(255, 255, 255, 0.1);
@@ -640,13 +641,16 @@ a.link-header {
   letter-spacing: 0.03em;
   background: rgba(33, 150, 243, 0.9);
   color: var(--color-projects-wrapper);
+  opacity: 0;
 
   transition: transform var(--transition-duration)
-    var(--transition-timing-function);
+      var(--transition-timing-function),
+    opacity var(--transition-duration) var(--transition-timing-function);
 }
 
 .projects-list-item-link:hover .overlay-description {
   transform: translateY(0);
+  opacity: 1;
 }
 
 /* --------------address list---------------------------------------- */
@@ -863,8 +867,8 @@ li.contacts-list-item > a.phone::before {
   margin-bottom: 10px;
 }
 
-.dark-bcg-icon:hover .social-icon,
-.dark-bcg-icon:focus .social-icon {
+.dark-bcg-icon > .social-icon,
+.dark-bcg-icon > .social-icon {
   fill: var(--white-color);
 }
 
