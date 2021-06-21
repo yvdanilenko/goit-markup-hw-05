@@ -648,7 +648,8 @@ a.link-header {
     opacity var(--transition-duration) var(--transition-timing-function);
 }
 
-.projects-list-item-link:hover .overlay-description {
+.projects-list-item-link:hover .overlay-description,
+.projects-list-item-link:focus .overlay-description {
   transform: translateY(0);
   opacity: 1;
 }
@@ -897,3 +898,5 @@ li.contacts-list-item > a.phone::before {
 .footer-social-list-item:not(:last-child) {
   margin-right: 10px;
 }
+
+/* ______forms__________________________________ */
